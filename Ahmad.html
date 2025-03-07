@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Traffic Light</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+
+        .traffic-light {
+            width: 80px;
+            background: black;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .light {
+            width: 60px;
+            height: 60px;
+            margin: 10px auto;
+            border-radius: 50%;
+            background: gray;
+        }
+
+        .red { background: red; }
+        .yellow { background: yellow; }
+        .green { background: green; }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Traffic Light 🚦</h1>
+    
+    <div class="traffic-light">
+        <div id="red-light" class="light"></div>
+        <div id="yellow-light" class="light"></div>
+        <div id="green-light" class="light"></div>
+    </div>
+
+    <br>
+    <button class="button" onclick="startTrafficLight()">Start</button>
+
+    <script>
+        let currentLight = 0;
+        function startTrafficLight() {
+            resetLights();
+
+            if (currentLight === 0) {
+                document.getElementById("red-light").classList.add("red");
+                currentLight = 1;
+            } else if (currentLight === 1) {
+                document.getElementById("yellow-light").classList.add("yellow");
+                currentLight = 2;
+            } else {
+                document.getElementById("green-light").classList.add("green");
+                currentLight = 0;
+            }
+        }
+
+        function resetLights() {
+            document.getElementById("red-light").className = "light";
+            document.getElementById("yellow-light").className = "light";
+            document.getElementById("green-light").className = "light";
+        }
+    </script>
+
+</body>
+</html>
